@@ -1,0 +1,90 @@
+{% extends 'base.html' %}
+
+{% block title %}Customer{% endblock title %}
+
+{% block head %} View Customer {% endblock head %}
+
+{% block body %}
+
+<div class="container" >
+    <div class="container">
+    {%if cv%}
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Customer ID</th>
+                <th scope="col">Name</th>
+                <th scope="col">Type</th>
+                <th scope="col">Phone Number</th>
+                <th scope="col">Email ID</th>
+                <th scope="col">Amount</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>{{ cv.customer_id }}</td>
+                <td>{{ cv.name }}</td>
+                <td>{{ cv.type }}</td>
+                <td>{{ cv.phone }}</td>
+                <td>{{ cv.email }}</td>
+                <td>{{ cv.amount }}</td>
+            </tr>
+        </tbody>
+        {% endif %}
+    </table>
+    
+    <div class="mb-5">
+    </div>
+
+    </div>
+</div>
+
+
+<div class="container" style="text-align:center;">
+    {%if vc%}
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Sr. No.</th> 
+                <th scope="col">Name</th>
+                <th scope="col">Amount</th>
+               
+            </tr>
+        </thead>
+        <tbody>
+            {%for s in vc %}
+            <tr>
+                <td>{{s.id}}</td>
+                <td>{{s.name}}</td>
+                <td>{{s.amount}}</td>
+            </tr>
+            {% endfor %}
+
+        </tbody>
+        {% endif %}
+    </table>
+</div>
+
+<div class="container" >
+    <form method="post" style="text-align:center;">
+        {% csrf_token %}
+
+        <label for="bookname" class="form-label">Select A Customer To View Details </label>
+        <select class="form-select" aria-label="Default select example" id="name" name="name">
+            {% for c in vc %}
+            <option value="" disabled selected hidden>Select Your Name</option>
+            <option value="{{c.name}}">{{c.name}}</option>
+            {% endfor %}
+        </select><br>
+
+        <button type="submit" class="btn btn-outline-primary mt-4" style="padding:10px;">Get Details</button>
+
+
+    </form>
+
+<div class="mb-5">
+</div>
+
+{% endblock body %}

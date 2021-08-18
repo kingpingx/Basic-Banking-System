@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+
+{% block title %}Transaction History{% endblock title %}
+
+{% block head %} Transactions {% endblock head %}
+
+
+{% block body %}
+
+
+<div class="container" style="text-align:center;">
+    {%if tc%}
+
+    <table class="table">
+        
+        <thead>
+            <tr>
+                
+                <th scope="col">Sender</th>
+                <th scope="col">Receiver</th>
+                <th scope="col">Amount</th>
+                <th scope="col">Date</th>
+            </tr>
+        </thead>
+        <tbody>
+            {%for t in tc %}
+            <tr>
+
+                <td>{{t.sname}}</td>
+                <td>{{t.rname}}</td>
+                <td>{{t.money}}</td>
+                <td>{{t.tdate}}</td>
+
+            </tr>
+            {% endfor %}
+
+        </tbody>
+        {% endif %}
+    </table>
+</div>
+
+
+
+
+<div class="mb-5">
+</div>
+
+{% endblock body %}

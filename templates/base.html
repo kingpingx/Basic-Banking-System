@@ -1,0 +1,75 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title> {% block title %} {% endblock title %} | T.S.B</title>
+<link rel="stylesheet" href="{% static 'css/homepage.css' %}">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Crimson+Pro">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css">
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+<body >
+    <div id="nav">
+        <nav class="navbar navbar-expand-sm navbar-dark bg-dark navbar-static-top">
+            <a id="brand" href="/homepage" >T.C.B</a>
+            <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <div class="navbar-nav text-center ml-auto">
+                    <a href="/homepage" class="nav-item nav-link">Home</a>
+                    <a href="/customer" class="nav-item nav-link">Customers</a>
+                    <a href="/transfer" class="nav-item nav-link">Transfer</a>
+                    <a href="/transactions" class="nav-item nav-link">Transactions</a>
+                    <a href="/" class="nav-item nav-link">Logout</a>
+                </div>
+            </div>
+        
+        </nav>
+    </div>
+        
+<div id="p">
+    <p class="mbr-section-title align-center  pb-3 mbr-fonts-style display-1" style="margin-top:80px; text-align:center;"> {% block head %} View Customer {% endblock head %}</p>
+</div>
+
+
+{% block body %}
+
+{% endblock body %}
+
+
+<footer class="page-footer font-small black">
+  <div class="footer-copyright text-center py-2" style="background-color:#29293d; color:rgb(255, 255, 255); margin-bottom:0px">© 2021 Developed by Prabal Pandey</div>
+</footer>
+
+</figure>
+
+<script>
+    function goto(){
+        window.replace()
+
+    }
+
+    document.getElementById("brand").style.transition = "all 1s";
+    document.getElementById("brand").onmouseover = function(){
+        after()};
+    document.getElementById("brand").onmouseout = function(){
+        old()};
+    var old_text="T.C.B";
+    var new_text="The Coder's Bank";
+    function after(){
+        document.getElementById("brand").innerHTML=new_text;
+    }
+    function old(){
+        document.getElementById("brand").innerHTML=old_text;
+    }
+    
+</script>
+
+
+</body>
+</html>

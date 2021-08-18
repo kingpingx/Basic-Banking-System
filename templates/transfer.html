@@ -1,0 +1,72 @@
+{% extends 'base.html' %}
+
+{% block title %}Transfer{% endblock title %}
+
+{% block head %} Fund Transfer {% endblock head %}
+
+{% block body %}
+
+<div class="container" style="text-align:center;">
+    <form method="post">
+        {% csrf_token %}
+        <div class="row-cols-1">
+        <label for="name" class="mbr-section-title align-center  pb-3 mbr-fonts-style lead display-5" ><b>Sender : </b></label>
+        <select class="form-select" style="text-align: center;" aria-label="Default select example" id="sname" name="sname" required>
+            {% for s in vc %}
+            <option value="" disabled selected hidden style="text-align: center;">Select Your Name</option>
+            <option  value="{{s.name}}" style="text-align: center;">{{s.amount}} - ({{s.name}})</option>
+            {% endfor %}
+        </select> <br>
+        <label for="name" class="mbr-section-title align-center  pb-3 mbr-fonts-style lead display-5"><b>Receiver : </b></label>
+        <select class="form-select" aria-label="Default select example" id="rname" name="rname" required>
+            {% for c in vc %}
+            <option value="" disabled selected hidden>Select Your Name</option>
+            <option value="{{c.name}}">{{c.name}} </option>
+            
+            {% endfor %}
+        </select><br>
+        <label for="amount" class="mbr-section-title align-center  pb-3 mbr-fonts-style lead display-5" required><b>Amount : </b></label>
+        <input type="number" id="amount" name="amount">
+        </div>
+        <button type="submit" onclick="check()" class="btn btn-outline-primary mt-4 ">Transfer Money</button>
+
+
+    </form>
+
+
+</div>
+<div class="mb-5">
+</div>
+
+<script>
+
+function check()
+{
+    var sender= document.getElementById("sname");
+    var reciever= document.getElementById("rname");
+    var amoney= parseInt(sender.options[sender.selectedIndex].text);
+    var rmoney= parseInt(document.getElementById("amount").value);
+    var name1= sender.options[sender.selectedIndex].value;
+    var name2=reciever.options[reciever.selectedIndex].value;
+    if(name1 == name2)
+    {
+        alert("Sender and Receiver can't be same !!!!");
+    }
+    else if(amoney<rmoney)
+    {
+        alert("Amount Insufficient !!!!");
+    }
+    else if(rmoney<=0)
+    {
+        alert("Amount can't be less than or equal to 0 !!!!");
+    }
+    else
+    {
+          alert("Amount Transferred !!!");
+    }
+
+}
+
+</script>
+
+{% endblock body %}
