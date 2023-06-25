@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block title %}Customer{% endblock title %}
+
+{% block head %} Add Customer {% endblock head %}
+
+{% block body %}
+<div class="container" style="text-align:center;">
+ 
+<form style="display: flex; flex-direction: column; gap: 5px;" method="post" action="{% url 'add_customer' %}">
+    {% csrf_token %}
+    <input type="text" name="name" placeholder="Name" required>
+    <input type="email" name="email" placeholder="Email" required>
+    <input type="text" name="type" placeholder="Type" required>
+    <input type="text" name="phone" placeholder="Phone" required>
+    <input type="number" name="amount" placeholder="Amount" required>
+    <button type="submit">Add Customer</button>
+    <a href="{% url 'customer' %}" class="btn btn-outline-primary mt-4" style="padding:10px;">View Customer</a>
+
+  </form>
+
+</div>
+  {% endblock body %}

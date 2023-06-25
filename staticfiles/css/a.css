@@ -1,0 +1,116 @@
+@font-face {
+    font-family: myFirstFont;
+    src: url(Pacifico-Regular.ttf);
+}
+@font-face {
+    font-family: mysecondFont;
+    src: url(DancingScript-VariableFont_wght.ttf);
+}
+  
+body{
+    background-image: url('bg form.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+#heading{
+    font-size: 40px;
+    font-weight: bolder;
+    margin-bottom: 10px;
+    font-family: myFirstFont;
+    color:rgb(0, 0, 0);
+    text-align: center;
+    width: fit-content;
+    margin-top: 50px;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    display: block;
+}
+#heading:hover{
+    font-size: 40px;
+    transform: scale(1.25);
+    font-weight: 900;
+    margin-bottom: 10px;
+    font-family: myFirstFont;
+    color:rgb(0, 0, 0);
+    text-align: center;
+    width: fit-content;
+    margin-top: 50px;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    display: block;
+}
+
+  
+.wrapper {
+    background: rgba(0, 0, 0, 0.3);
+    display: block;
+    text-align: center;
+    width:fit-content;
+    min-height: 100%;
+    margin: auto;
+    padding: 20px;
+    flex-wrap: wrap;
+    border-radius: 20px;
+    
+  }
+
+ .wrapper p{
+    font-family: myFirstFont;
+    color :rgb(7, 7, 7);
+    font-size: 30px;
+    font-weight: bolder;
+    margin-top: 0%;
+    margin: 20px auto;
+    padding: 5px auto;
+    
+}
+
+input {
+    outline:none;
+    border-left: none;
+    border-right: none;
+    border-top: none;
+    border-radius: 5px;
+    size: 50000em;
+    height:30px;
+    font-size: 20px;
+    align-content: center;
+    transform : scale(1);
+    transition: 0.3s ease-in-out;
+    overflow: hidden;
+    color:rgb(255, 255, 255);
+    background-color: rgb(5, 5, 5);
+    opacity: 0.5;
+}
+
+
+input:hover{
+    transform : scale(1.08);
+}
+
+input::placeholder{
+
+    font-size: 15px;
+}
+
+button{
+    margin-top: 20px;
+    font-size: x-large;
+    font-family: myFirstFont;
+    outline: none;
+    color :rgb(255, 255, 255);
+    background-color: rgb(0, 0, 0);
+    border-radius: 15px;
+    transform : scale(1);
+    transition: 0.3s ease-in-out;
+    padding: 5px 20px;
+    z-index: -1;
+}
+
+#button:hover{
+    transform : scale(1.1);
+}

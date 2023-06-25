@@ -31,9 +31,9 @@
                 <td>{{ cv.amount }}</td>
             </tr>
         </tbody>
-        {% endif %}
+        
     </table>
-    
+    {% endif %}
     <div class="mb-5">
     </div>
 
@@ -63,10 +63,12 @@
             {% endfor %}
 
         </tbody>
-        {% endif %}
+        
     </table>
+    {% endif %}
 </div>
 
+{% if vc %}
 <div class="container" >
     <form method="post" style="text-align:center;">
         {% csrf_token %}
@@ -80,11 +82,15 @@
         </select><br>
 
         <button type="submit" class="btn btn-outline-primary mt-4" style="padding:10px;">Get Details</button>
-
+        <a href="{% url 'add_customer' %}" class="btn btn-outline-primary mt-4" style="padding:10px;">Add Customer</a>
 
     </form>
 
+
 <div class="mb-5">
 </div>
+
+</div>
+{% endif %}
 
 {% endblock body %}
